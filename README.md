@@ -12,8 +12,32 @@ The key features required were:
   <li> During EDA and model development, significant keywords were found as key identifiers in the reports that tied well with the CRGC's mission to motivate better structured reports. Therefore, the keywords used are also displayed for each submitted path report.</li>
 </ol>
 
+# Team
+
+The following students worked on this project:
+<ol class= "lead">
+  <li> Peru Dayani</li>
+      <ul>
+        <li> Developed model architecture and models using python and sckit-learn.
+        <li> Developed custom TF-IDF text vectorizer for medical data. 
+        <li> Developed web app using Flask, python, HTML, bootstrap and JS.
+        <li> Deployed web app on Heroku and maintains it.
+        <li> Lead team meetings with CRGC representatives to set realistic goals.
+      </ul>
+  <li> Carlos Calderon</li>
+        <ul>
+          <li> Compared ML model architectures 
+        </ul>       
+  <li> Saumya Choudhary</li>
+        <ul>
+          <li> Conducted EDA on data
+          <li> Developed data cleaning pipeline
+        </ul>  
+</ol>
+
 # Project Results
 
 Final Deliverable Demo: https://www.youtube.com/embed/gZLGlP98EsA
+<br>
 Final Deliverable Presentation: https://drive.google.com/open?id=1srR26ON6Vu-ygoowqm9AqW7AJcM6NW0Y03QRXd-njM4
 
