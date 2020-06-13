@@ -33,7 +33,7 @@ The following students worked on this project:
         <li> Developed custom TF-IDF text vectorizer for medical data. 
         <li> Developed web app using Flask, python, HTML, bootstrap and JS.
         <li> Deployed web app on Heroku and maintains it.
-        <li> Lead team meetings with CRGC representatives to set realistic goals.
+        <li> Lead team meetings with CRGC representatives.
       </ul>
   <li> Carlos Calderon</li>
         <ul>
