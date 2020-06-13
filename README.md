@@ -12,6 +12,17 @@ The key features required were:
   <li> During EDA and model development, significant keywords were found as key identifiers in the reports that tied well with the CRGC's mission to motivate better structured reports. Therefore, the keywords used are also displayed for each submitted path report.</li>
 </ol>
 
+# Project Results
+Multi-layer ML model achieved 96% accurancy is classifying bladder cancer path. reports as incomplete. The deployment of the model on the website serves as a viable proof of concept to reduce path report error correction time by 5-6 days and save an estimated of 200-250 lives per year.
+
+Live Website: https://crgc-mvp.herokuapp.com/ (Under development)
+<br>
+Final Deliverable Demo: https://www.youtube.com/embed/gZLGlP98EsA
+<br>
+Final Deliverable Presentation: https://drive.google.com/open?id=1srR26ON6Vu-ygoowqm9AqW7AJcM6NW0Y03QRXd-njM4
+
+
+
 # Team
 
 The following students worked on this project:
@@ -34,11 +45,3 @@ The following students worked on this project:
           <li> Developed data cleaning pipeline
         </ul>  
 </ol>
-
-# Project Results
-
-Live Website: https://crgc-mvp.herokuapp.com/ (Under development)
-Final Deliverable Demo: https://www.youtube.com/embed/gZLGlP98EsA
-<br>
-Final Deliverable Presentation: https://drive.google.com/open?id=1srR26ON6Vu-ygoowqm9AqW7AJcM6NW0Y03QRXd-njM4
-
