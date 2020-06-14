@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    <title>CRGC MVP Model</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+   
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+     
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     
+    <script src="js/modernizr-2.6.2.min.js"></script>
+     
+    <link rel="stylesheet" href="{{ url_for('static',     filename='css/template.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  </head>
+  <body>
+
+    {% extends "template.html" %}
+    {% block content %}
+
+    <div class="container" >
+
+      <br>
+      <br>
+
+      <h1 class="display-4"> Machine Learning Model </h1>
+        <p class="lead">
+          Classify the bladder cancer pathology report as complete or incomplete.
+        </p>
+      <br>
+      
+      <form method=post enctype=multipart/form-data>
+        <div>
+        <p>
+          Enter your information: <br><br>
+          Pathologist Name      : <input type="text" class="form-control" id="name" name="name" placeholder="First name (Not necessary)"><br><br>
+          Pathologist Email     : <input type="email" class="form-control" id="email" name="email" placeholder="Email (Not necessary)"><br><br>
+          Pathologist Phone     : <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone Number (Not necessary)"><br><br>
+        </p>
+        </div>
+
+        <div class="custom-file mb-3">
+          <input type="file" class="custom-file-input" id=file name=file>
+          <label class="custom-file-label" for=file>Choose file (Necessary)</label>
+        </div>
+
+        <br>
+        <br>
+        <input type=submit  class="btn btn-primary btn-lg btn-block" value=Upload>
+        <br>
+        <br>
+      </form>
+
+      <script>
+        // Add the following code if you want the name of the file appear on select
+        $(".custom-file-input").on("change", function() {
+          var filename = $(this).val().split("\\").pop();
+          $(this).siblings(".custom-file-label").addClass("selected").html(filename);
+        });
+      </script>
+
+      <h1 class="display-4"> Model Result </h1>
+        <p class="lead">
+          The keywords and classifications for each record submitted:
+        </p>
+      <br>
+
+
+      <br>
+      <p class="lead">
+      Pathologist info: 
+      </p>
+      {{ info | safe}}
+      
+      <br>
+      <br>
+      <p class="lead">
+      Input Data: 
+      </p>
+      {{input_data | safe}}
+      
+      <br>
+      <br>
+      <p class="lead">
+      Model Classification: 
+      </p>
+      <br>
+      {{ model_report | safe}}
+
+    </div>
+    
+    {% endblock %}
+  </body>
+</html>

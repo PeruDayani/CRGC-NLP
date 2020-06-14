@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    <title>NLP Keywords</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+   
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+     
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     
+    <script src="js/modernizr-2.6.2.min.js"></script>
+     
+    <link rel="stylesheet" href="{{ url_for('static',     filename='css/template.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <body>
+
+
+    {% extends "template.html" %}
+    {% block content %}
+    
+
+    <div class="container" >
+
+      <br>
+      <br>
+
+      <h1 class="display-4"> Keywords Input </h1>
+        <p class="lead">
+          Find keywords used in an uploaded bladder cancer pathologist report.
+        </p>
+      <br>
+      
+      <form method=post enctype=multipart/form-data>
+        <div>
+        <p>
+            <h4> Enter your information: </h4><br>
+            Pathologist Name      : <input type="text" class="form-control" id="name" name="name" placeholder="First name"><br>
+            Pathologist Email     : <input type="email" class="form-control" id="email" name="email" placeholder="Email"><br>
+            Pathologist Phone     : <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone Number"><br>
+        </p>
+        </div>
+
+        <div>
+        <p>
+            <h4> Enter the report: </h4> <br>
+            adText_Final_DX : <input type="text" id="text1" class="form-control" name="adText_Final_DX"><br>
+            adText_OP_Proc  : <input type="text" id="text2" class="form-control" name="adText_OP_Proc"><br>
+            adText_Path     : <input type="text" id="text3" class="form-control" name="adText_Path"><br>
+            adText_Phys_EX  : <input type="text" id="text4" class="form-control" name="adText_Phys_EX"><br>
+            adText_Remarks  : <input type="text" id="text5" class="form-control" name="adText_Remarks"><br>
+            adText_Scopes   : <input type="text" id="text6" class="form-control" name="adText_Scopes"><br>
+            adText_Surg_1.  : <input type="text" id="text7" class="form-control" name="adText_Surg_1"><br>
+        </p>
+        </div>
+
+        <br>
+        <br>
+
+        <input type=submit  class="btn btn-primary btn-lg btn-block" value=Upload>
+        
+        <br>
+        <br>
+
+      </form>
+
+      <h1 class="display-4"> Model Result </h1>
+        
+        <p class="lead">
+          The keywords for the submitted record are:
+        </p>
+
+      <br>
+
+      <div>
+        
+        Pathologist info: 
+        <br>
+        {{ info | safe}}
+        
+        <br>
+        <br>
+        
+        Input Data: 
+        <br>
+        {{ input | safe}}
+        
+        <br>
+        <br>
+
+        Model Classification: 
+        <br>
+        {{ output | safe}}
+        
+      </div>
+
+    </div>
+
+
+
+<!--
+
+    <h1> Find Medical keywords used in the pathology report </h1>
+
+
+    <form method=post enctype=multipart/form-data>
+
+    <p>
+        Enter your information: <br><br>
+        Pathologist Name     : <input type="text" id="name" name="name"><br><br>
+        Pathologist Email     : <input type="text" id="email" name="email"><br><br>
+        Pathologist Phone     : <input type="text" id="phone" name="phone"><br><br>
+    </p>
+    <p>
+        Enter the report: <br><br>
+        adText_Final_DX : <input type="text" id="text1" name="adText_Final_DX"><br><br>
+        adText_OP_Proc  : <input type="text" id="text2" name="adText_OP_Proc"><br><br>
+        adText_Path     : <input type="text" id="text3" name="adText_Path"><br><br>
+        adText_Phys_EX  : <input type="text" id="text4" name="adText_Phys_EX"><br><br>
+        adText_Remarks  : <input type="text" id="text5" name="adText_Remarks"><br><br>
+        adText_Scopes   : <input type="text" id="text6" name="adText_Scopes"><br><br>
+        adText_Surg_1.  : <input type="text" id="text7" name="adText_Surg_1"><br><br>
+    </p>
+    <p>
+        Test : <input type=submit value=Upload>        
+    </p>
+    </form>
+
+    <br>
+    Pathologist info: {{ info }}
+    <br>
+    <br>
+    Input is: {{input | safe}}
+    <br>
+    <br>
+    Output is: {{ output | safe}}
+
+   <script>
+        function findKeywords() {
+            var name= $('#name').val();
+            var email= $('#email').val();
+            var phone= $('#phone').val();
+            var text1= $('#text1').val();
+            var text2= $('#text2').val();
+            var text3= $('#text3').val();
+            var text4= $('#text4').val();
+            var text5= $('#text5').val();
+            var text6= $('#text6').val();
+            var text7= $('#text7').val();        
+              $.ajax({
+                          url: "/find_keywords_input",
+                          type: "POST",
+                          data: {
+                            name:name,
+                            email:email,
+                            phone:phone,
+                            text1:text1,
+                            text2:text2,
+                            text3:text3,
+                            text4:text4,
+                            text5:text5,
+                            text6:text6,
+                            text7:text7
+                        }
+                      }).done(function(response) {
+                        response =response.result;
+                        $(".show-data").append(response['input']);
+                        $(".show-data").append(response['output']);
+                        });
+        };
+
+    </script>
+
+    <p>
+        Enter your information: <br><br>
+        Pathologist Name     : <input type="text" id="name" name="name"><br><br>
+        Pathologist Email     : <input type="text" id="email" name="email"><br><br>
+        Pathologist Phone     : <input type="text" id="phone" name="phone"><br><br>
+    </p>
+    <p>
+        Enter the report: <br><br>
+        adText_Final_DX : <input type="text" id="text1" name="adText_Final_DX"><br><br>
+        adText_OP_Proc  : <input type="text" id="text2" name="adText_OP_Proc"><br><br>
+        adText_Path     : <input type="text" id="text3" name="adText_Path"><br><br>
+        adText_Phys_EX  : <input type="text" id="text4" name="adText_Phys_EX"><br><br>
+        adText_Remarks  : <input type="text" id="text5" name="adText_Remarks"><br><br>
+        adText_Scopes   : <input type="text" id="text6" name="adText_Scopes"><br><br>
+        adText_Surg_1.  : <input type="text" id="text7" name="adText_Surg_1"><br><br>
+      </p>
+    <button id="findKeywordsButton" onclick="findKeywords()">Submit</button>
+    <div class="show-data" >
+    </div>
+
+-->
+    {% endblock %}
+  </body>
+</html>

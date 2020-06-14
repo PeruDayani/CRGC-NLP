@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>CRGC MVP Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+   
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+     
+     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     
+     <script src="js/modernizr-2.6.2.min.js"></script>
+     
+     <link rel="stylesheet" href="{{ url_for('static',     filename='css/template.css') }}">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  </head>
+  <body>
+    {% extends "template.html" %}
+    {% block content %}
+    
+    <br>
+    <br>
+    <br>
+
+    <div class="container" >
+
+      <h1 class="display-4"> CRGC Project MVP </h1>
+      <p class="lead">
+        <br>
+        This website is the Project MVP that demonstrates our deployed machine learning model allowing pathologists to upload a bladder cancer report that will then be classified as having either sufficient or insufficient mention of resected muscle. It will alos be parsed to report identifying keywords used. If classified as insufficient, an email alert will be sent to the pathologist.
+      </p>
+      <br>
+
+      <h1 class="display-4"> Project Background </h1>
+      <p class="lead">
+        <br>
+        A YEAR research study conducted by Chamie et al. for non–muscle-invasive bladder cancer cases diagnosed in 2004-2005 in Los Angeles County found that the omission of muscle in the specimen or its mention in the pathology report in nearly half of all diagnostic resections is associated with increased mortality, particularly in patients with high-grade disease. Because urologists cannot reliably discern between high- and low-grade or Ta and T1 diseases, patients with bladder cancer should undergo adequate muscle sampling at the time of endoscopic resection. Thus, better pathologist reports and the quality of resection is hypothesized to be associated with an increase in survival. ​
+        <br>
+        <blockquote class="blockquote text-center">
+          <p class="mb-0">It is estimated that at least 200-250 lives could be saved every year if actionable alerts could be sent out to the attending physician, surgeon, and pathologist.​
+          </p>
+          <footer class="blockquote-footer"><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6209593/">Quality of Diagnostic Staging in Patients with Bladder Cancer: A Process-Outcomes Link </a></footer>
+        </blockquote>
+
+      </p>
+      <br>
+
+      <h1 class="display-4"> Project Aim </h1>
+      <p class="lead">
+        <br>
+        The aim of this project was to create and deploy a machine learning model via a web application to allow pathologists to submit a bladder cancer report and get real time alerts via email if the submitted report was classified as incomplete. 
+        <br>
+        The key features required were:
+        <ol class= "lead">
+          <li> A NLP machine learning model to parse and classify a pathology report. This was achieved using a custom vectorizer and multi-model architecture to maximize the utilization of the medical data provided.</li>
+          <li> A live web application to deploy the model as a proof of concept for a viable and scalable solution to provide pathologists access to feedback. This was achieved by developing a web application using Flask and deploying on Heroku.</li>
+          <li> During EDA and model development, significant keywords were found as key identifiers in the reports that tied well with the CRGC's mission to motivate better structured reports. Therefore, the keywords used are also displayed for each submitted path report.</li>
+        </ol>
+
+      </p>
+      <br>
+
+      <h1 class="display-4"> Project Report </h1>
+      <p class="lead">
+        <br>
+        The final project report:
+      </p>
+
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSHbIoP55lIXylxJJOdDigprpjk2fIjQpDRPw5jaZ96RyPx31qfir8RO_1nPydS0mI8WB7s__hDh-IU/embed?start=true&loop=true&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+      </div>
+
+
+      <br>
+      <br>
+      <br>
+
+      <h1 class="display-4"> Project Video Demo </h1>
+      <p class="lead">
+        <br>
+        A video demo of the full project:
+      </p>
+
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/gZLGlP98EsA" allowfullscreen></iframe>
+      </div>
+
+      <br>
+      <br>
+      <br>
+
+      <h1 class="display-4"> The Team </h1>
+      <p class="lead">
+        <br>
+        The following UC Berkley students developed this project in collaboration with and under the guidance of the Cancer Registry of Greater California and the UC Berkeley Division of Data Science.
+      </p>
+           
+      <br>
+
+      <div class="card-deck">
+        <div class="card">
+          <img class="card-img-top" src="{{ url_for('static', filename='peru.jpg') }}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Peru Dayani</h5>
+            <p class="card-text">
+            Project Lead: 
+            <br>
+            Developed custom vectorizer, ML model architecture and web application.
+            </p>
+            <p class="card-text">
+            EECS @ UC Berkeley
+            </p>
+            <a href="https://www.linkedin.com/in/peru-dayani-09367314a/" class="btn btn-primary">LinkedIn</a>
+          </div>
+        </div>
+        <div class="card">
+          <div style="width:349px ;height:350px ;overflow:hidden">
+            <img class="card-img-top" src="{{ url_for('static', filename='carlos.jpg') }}" alt="Card image cap">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Carlos Calderon</h5>
+            <p class="card-text">
+            ML Engineer: 
+            <br>
+            Evaluated and developed ML models. 
+            </p>
+            <br>
+            <p class="card-text">
+            Data Science @ UC Berkeley
+            </p>
+            <a href="https://www.linkedin.com/in/carlos-calderon-08bb0719a/" class="btn btn-primary">LinkedIn</a>
+          </div>
+        </div>
+        <div class="card">
+          <div style="width:349px ;height:350px ;overflow:hidden">
+            <img class="card-img-top" src="{{ url_for('static', filename='saumya.jpg') }}" alt="Card image cap">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"> Saumya Choudhary </h5>
+            <p class="card-text">
+            Data Engineer: 
+            <br>
+            Conducted data EDA and developed data cleaning pipeline.
+            </p>
+            <p class="card-text">
+            Stats & Data Science @ UC Berkeley
+            </p>
+            <a href="https://www.linkedin.com/in/saumya-choudhary-26893a186/" class="btn btn-primary">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+    {% endblock %}
+  </body>
+</html>
