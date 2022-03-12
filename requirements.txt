@@ -21,7 +21,7 @@ numpy==1.16.4
 numpydoc==0.9.1
 pandas==0.24.2
 pandocfilters==1.4.2
-Pillow==6.1.0
+Pillow==9.0.1
 pkginfo==1.5.0.1
 requests==2.22.0
 requests-oauthlib==1.2.0
